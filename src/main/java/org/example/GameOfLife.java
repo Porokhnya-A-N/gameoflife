@@ -8,5 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class GameOfLife {
- 
+    public static void main(String[] args) {
+
+    }
 }
