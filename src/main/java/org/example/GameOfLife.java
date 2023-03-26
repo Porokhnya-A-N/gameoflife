@@ -11,4 +11,7 @@ public class GameOfLife {
     public static void main(String[] args) {
 
     }
+    public void game(String inputPath, String outputPath){
+        System.out.println("test");
+    }
 }
