@@ -39,10 +39,16 @@ public class LogicGameOfLife {
     }
 
     private void cellScan(){
-
+        for (int i = 0; i < arrayOfLife.length; i++) {
+            int count = 0;
+            for (int j = 0; j < arrayOfLife[i].length; j++) {
+                count = topCell(j,i) + bottomCell(j,i) + leftCell(j,i) + rightCell(j,i);
+                System.out.println("x: "+ j + " y: " + i +" " + count);
+            }
+        }
     }
     private int isLive(char ch) {
-        if(ch == '0'){
+        if(ch == 'O'|| ch == '0'){
             return 1;
         }else {
             return 0;
@@ -76,10 +82,59 @@ public class LogicGameOfLife {
             return isLive(arrayOfLife[y][0]);
         }
     }
+    private int topLeftCell(int x, int y) {
+        if ((y - 1) >= 0) {
+           return leftCell(x,y-1);
+           /* if ((x - 1) >= 0) {
+                return isLive(arrayOfLife[y - 1][x - 1]);
+            } else {
+                return isLive(arrayOfLife[y - 1][widthArray - 1]);
+            }*/
+        } else {
+            return leftCell(x,heightArray - 1);
+           /* if ((x - 1) >= 0) {
+                return isLive(arrayOfLife[heightArray - 1][x - 1]);
+            } else {
+                return isLive(arrayOfLife[heightArray - 1][widthArray - 1]);
+            }*/
+        }
+    }
+    private int topRightCell(int x, int y){
+        if ((y - 1) >= 0) {
+            return rightCell(x,y-1);
+           /* if ((x - 1) >= 0) {
+                return isLive(arrayOfLife[y - 1][x - 1]);
+            } else {
+                return isLive(arrayOfLife[y - 1][widthArray - 1]);
+            }*/
+        } else {
+            return rightCell(x,heightArray - 1);
+           /* if ((x - 1) >= 0) {
+                return isLive(arrayOfLife[heightArray - 1][x - 1]);
+            } else {
+                return isLive(arrayOfLife[heightArray - 1][widthArray - 1]);
+            }*/
+        }
+    }
+    private int bottomLeftCell(int x, int y){
+        if((y+1) <= heightArray-1){
+            return leftCell(x,y+1);
+        }else {
+            return leftCell(x,0);
+        }
+    }
+    private int bottomRightCell(int x, int y){
+        if((y+1) <= heightArray-1){
+            return rightCell(x,y+1);
+        }else {
+            return rightCell(x,0);
+        }
+    }
 
     public void runGame(){
         uploadFile();
         uploadingSetting();
+        cellScan();
        // unloading(resultLife);
     }
 }

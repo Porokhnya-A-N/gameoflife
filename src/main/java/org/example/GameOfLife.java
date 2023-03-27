@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class GameOfLife {
     public static void main(String[] args) {
-        game("E:\\Java Project One\\src\\test\\resources\\inputGlider.txt","E:\\Java Project One\\src\\test\\resources\\outputGlider.txt");
+        game("src\\test\\resources\\inputGlider.txt","src\\test\\resources\\outputGlider.txt");
     }
     public static void game(String inputPath, String outputPath){
         LogicGameOfLife logicGame = new LogicGameOfLife(inputPath,outputPath);

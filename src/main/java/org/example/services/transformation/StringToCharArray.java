@@ -15,7 +15,7 @@ public class StringToCharArray {
         int countHeight = 0;
         char[][] array = new char[heightArray][widthArray];
         for (String s : list) {
-            array[countHeight] = s.toCharArray();
+            array[countHeight] = s.replaceAll("\\s+","").toCharArray();
             countHeight++;
         }
         return array;
