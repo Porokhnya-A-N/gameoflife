@@ -13,6 +13,7 @@ public class LogicGameOfLife {
     private int widthArray;
     private int heightArray;
     private char[][] arrayOfLife;
+    private char[][] cloneArrayOfLife;
     private List<String> list;
     private List<String> resultLife;
 
@@ -36,6 +37,46 @@ public class LogicGameOfLife {
         list.remove(0);
         arrayOfLife = new StringToCharArray(heightArray,widthArray).transformationToArray(list);
     }
+
+    private void cellScan(){
+
+    }
+    private int isLive(char ch) {
+        if(ch == '0'){
+            return 1;
+        }else {
+            return 0;
+        }
+    }
+    private int topCell(int x, int y){
+        if((y-1) >= 0){
+            return isLive(arrayOfLife[y-1][x]);
+        }else {
+            return isLive(arrayOfLife[heightArray-1][x]);
+        }
+    }
+    private int bottomCell(int x, int y){
+        if((y+1) <= heightArray-1){
+            return isLive(arrayOfLife[y+1][x]);
+        }else {
+            return isLive(arrayOfLife[0][x]);
+        }
+    }
+    private int leftCell(int x, int y){
+        if((x-1) >= 0){
+            return isLive(arrayOfLife[y][x-1]);
+        }else{
+            return isLive(arrayOfLife[y][widthArray-1]);
+        }
+    }
+    private int rightCell(int x, int y){
+        if((x+1) <= widthArray-1){
+            return isLive(arrayOfLife[y][x+1]);
+        }else{
+            return isLive(arrayOfLife[y][0]);
+        }
+    }
+
     public void runGame(){
         uploadFile();
         uploadingSetting();
