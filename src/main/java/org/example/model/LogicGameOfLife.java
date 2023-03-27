@@ -42,7 +42,7 @@ public class LogicGameOfLife {
         for (int i = 0; i < arrayOfLife.length; i++) {
             int count = 0;
             for (int j = 0; j < arrayOfLife[i].length; j++) {
-                count = topCell(j,i) + bottomCell(j,i) + leftCell(j,i) + rightCell(j,i);
+                count = topCell(j,i) + bottomCell(j,i) + leftCell(j,i) + rightCell(j,i)+ topLeftCell(j,i) + topRightCell(j,i) + bottomLeftCell(j,i) + bottomRightCell(j,i);
                 System.out.println("x: "+ j + " y: " + i +" " + count);
             }
         }
@@ -62,7 +62,7 @@ public class LogicGameOfLife {
         }
     }
     private int bottomCell(int x, int y){
-        if((y+1) <= heightArray-1){
+        if((y+1) <= (heightArray-1)){
             return isLive(arrayOfLife[y+1][x]);
         }else {
             return isLive(arrayOfLife[0][x]);
@@ -76,7 +76,7 @@ public class LogicGameOfLife {
         }
     }
     private int rightCell(int x, int y){
-        if((x+1) <= widthArray-1){
+        if((x+1) <= (widthArray-1)){
             return isLive(arrayOfLife[y][x+1]);
         }else{
             return isLive(arrayOfLife[y][0]);
